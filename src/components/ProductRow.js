@@ -1,5 +1,5 @@
 import React from 'react';
-import sampleImage from '../logo192.png';
+import { Button } from 'reactstrap';
 
 const ProductRow = ({ image, name, description, price }) => {
   return (
@@ -12,7 +12,8 @@ const ProductRow = ({ image, name, description, price }) => {
         <div dangerouslySetInnerHTML={{__html: description}}></div>
       </div>
       <div className="col-md-2 product-price">
-        {price}
+        <p>{price}</p>
+        <Button color="success">Add to cart</Button>
       </div>
     </div>
   );
