@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const ProductRow = ({ image, name, description, price }) => {
   return (
@@ -13,7 +15,10 @@ const ProductRow = ({ image, name, description, price }) => {
       </div>
       <div className="col-md-2 product-price">
         <p>{price}</p>
-        <Button color="success">Add to cart</Button>
+        <Button color="success">
+          <FontAwesomeIcon icon={faPlus} />
+          <span className="icon-button-text-right">Add to cart</span>
+        </Button>
       </div>
     </div>
   );

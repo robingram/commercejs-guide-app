@@ -7,6 +7,8 @@ import {
   ModalHeader,
   ModalBody
 } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
 import Cart from './cart/Cart';
 
 const Nav = () => {
@@ -16,7 +18,9 @@ const Nav = () => {
   return (
     <Navbar>
       <NavbarBrand href="/">MyStore</NavbarBrand>
-      <Button onClick={toggleModal}>Cart</Button>
+      <Button onClick={toggleModal} color="primary">
+        <FontAwesomeIcon icon={faCartArrowDown} />
+      </Button>
       <Modal isOpen={modal} toggle={toggleModal}>
       <ModalHeader toggle={toggleModal}>Cart</ModalHeader>
         <ModalBody>

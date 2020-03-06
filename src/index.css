@@ -35,3 +35,7 @@ header {
   font-weight: bold;
   font-size: 140%;
 }
+
+.icon-button-text-right {
+  padding-left: 0.5rem;
+}
