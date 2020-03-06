@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="container">
       <Nav />
-      <header className="header">
-        <h1>My Products</h1>
-      </header>
+      <div className="container">
+        <h2>Products</h2>
+      </div>
       <ProductList />
     </div>
   );

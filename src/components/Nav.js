@@ -17,7 +17,9 @@ const Nav = () => {
 
   return (
     <Navbar>
-      <NavbarBrand href="/">MyStore</NavbarBrand>
+      <NavbarBrand href="/">
+        <h1>MyStore</h1>
+      </NavbarBrand>
       <Button onClick={toggleModal} color="primary">
         <FontAwesomeIcon icon={faCartArrowDown} />
       </Button>
