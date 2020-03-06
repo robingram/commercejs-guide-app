@@ -7,7 +7,7 @@ import {
   ModalHeader,
   ModalBody
 } from 'reactstrap';
-import CartProductList from './cart/CartProductList';
+import Cart from './cart/Cart';
 
 const Nav = () => {
   const [modal, setModal] = useState(false);
@@ -20,7 +20,7 @@ const Nav = () => {
       <Modal isOpen={modal} toggle={toggleModal}>
       <ModalHeader toggle={toggleModal}>Cart</ModalHeader>
         <ModalBody>
-          <CartProductList />
+          <Cart />
         </ModalBody>
       </Modal>
     </Navbar>
