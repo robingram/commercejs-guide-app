@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Commerce from '@chec/commerce.js';
 import './App.css';
 import Nav from './components/Nav';
 import ProductList from './components/ProductList';
 import CartContext from './context/CartContext';
+import { commerce } from './lib/Commerce';
 
 function App() {
-  const commerce = new Commerce(process.env.REACT_APP_CJS_PUBLICKEY_TEST);
   const [cart, setCart] = useState();
 
   useEffect(() => {

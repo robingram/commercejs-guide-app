@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Commerce from '@chec/commerce.js';
 import ProductRow from './ProductRow';
 import CartContext from '../context/CartContext';
-
-const commerce = new Commerce(process.env.REACT_APP_CJS_PUBLICKEY_TEST);
+import { commerce } from '../lib/Commerce';
 
 class ProductList extends Component {
   constructor(props) {
