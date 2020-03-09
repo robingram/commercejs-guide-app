@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProductRow from './ProductRow';
 import Commerce from '@chec/commerce.js';
 
-const commerce = new Commerce('pk_test_17836673c8ef939d955d255da8cc112a5560bf0a0cbca');
+const commerce = new Commerce(process.env.REACT_APP_CJS_PUBLICKEY_TEST);
 
 class ProductList extends Component {
   constructor(props) {
