@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -10,11 +10,14 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
 import Cart from './cart/Cart';
+import CartContext from '../context/CartContext';
 
 const Nav = () => {
+  const { cart } = useContext(CartContext);
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
 
+  let cartItems = cart && cart.total_unique_items > 0 ? cart.total_unique_items : '';
   return (
     <Navbar>
       <NavbarBrand href="/">
@@ -22,6 +25,7 @@ const Nav = () => {
       </NavbarBrand>
       <Button onClick={toggleModal} color="primary">
         <FontAwesomeIcon icon={faCartArrowDown} />
+        <span className="icon-button-text-right">{cartItems}</span>
       </Button>
       <Modal isOpen={modal} toggle={toggleModal}>
       <ModalHeader toggle={toggleModal}>Cart</ModalHeader>
