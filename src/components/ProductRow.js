@@ -1,18 +1,29 @@
 import React from 'react';
-import sampleImage from '../logo192.png';
+import { Button } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
-const ProductRow = ({ image, name, description, price }) => {
+const ProductRow = ({ product, addProduct }) => {
+  const handleAddProduct = e => {
+    e.preventDefault();
+    addProduct(product.id);
+  }
+
   return (
     <div className="row product">
       <div className="col-md-2">
-        <img src={image} alt={name} height="150" />
+        <img src={product.media.source} alt={product.name} height="150" />
       </div>
       <div className="col-md-8 product-detail">
-        <h4>{name}</h4>
-        <div dangerouslySetInnerHTML={{__html: description}}></div>
+        <h4>{product.name}</h4>
+        <div dangerouslySetInnerHTML={{__html: product.description}}></div>
       </div>
       <div className="col-md-2 product-price">
-        {price}
+        <p>{product.price.formatted_with_symbol}</p>
+        <Button color="success" onClick={handleAddProduct}>
+          <FontAwesomeIcon icon={faPlus} />
+          <span className="icon-button-text-right">Add to cart</span>
+        </Button>
       </div>
     </div>
   );

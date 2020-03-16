@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ProductRow from './ProductRow';
-import Commerce from '@chec/commerce.js';
-
-const commerce = new Commerce(process.env.REACT_APP_CJS_PUBLICKEY_TEST);
+import CartContext from '../context/CartContext';
+import { commerce } from '../lib/Commerce';
 
 class ProductList extends Component {
   constructor(props) {
@@ -11,6 +10,16 @@ class ProductList extends Component {
     this.state = {
       products: [],
     }
+
+    this.handleAddProduct = this.handleAddProduct.bind(this);
+  }
+
+  handleAddProduct(productId) {
+    commerce.cart.add(productId, 1)
+      .then(result => {
+        this.context.setCart(result.cart);
+        alert("Product added to cart");
+      });
   }
 
   componentDidMount() {
@@ -24,12 +33,14 @@ class ProductList extends Component {
       <div className="container main-content">
         {
           this.state.products.map(product => {
-            return <ProductRow key={product.id} image={product.media.source} name={product.name} description={product.description} price={product.price.formatted_with_symbol} />
+            return <ProductRow key={product.id} product={product} addProduct={this.handleAddProduct} />
           })
         }
       </div>
     );
   }
 }
+
+ProductList.contextType = CartContext;
 
 export default ProductList;
